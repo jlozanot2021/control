@@ -1,0 +1,20 @@
+
+l = 4;
+mc = 5;
+mr = 1;
+g = 9.81;
+
+syms u x2 x3 x4
+
+eqn1 = x3 == 0;
+eqn2 = x4 == 0;
+eqn3 = (- l*mr*sin(x2)*x4^2 + u + g*mr*cos(x2)*sin(x2))/(- mr*cos(x2)^2 + mc + mr) == 0;
+eqn4 = (- l*mr*cos(x2)*sin(x2)*x4^2 + u*cos(x2) + g*mc*sin(x2) + g*mr*sin(x2))/(l*(- mr*cos(x2)^2 + mc + mr)) == 0;
+eqns = [eqn1 eqn2 eqn3 eqn4]
+s = solve(eqns, [x2 x3 x4 u], 'ReturnConditions', true, 'Real', true);
+ %como s (x1) no aparece en las ecuaciones de arriba, no hace falta
+ %resolverlo y por tanto puede estar en cualquier posició
+Su = s.u
+Sx2 = s.x2
+Sx3 = s.x3
+Sx4 = s.x4

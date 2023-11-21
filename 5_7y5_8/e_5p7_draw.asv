@@ -1,0 +1,10 @@
+% Adapted from https://www.ensta-bretagne.fr/jaulin/
+
+% State x = (x(1),x(2))
+
+function e_5p7_draw(t,x)
+
+
+  plot(t,x(19,'k--.',t,x(2),'r--.',)
+  
+end

@@ -1,0 +1,17 @@
+function  xdot  = f(x,u)
+
+% State: x = (x(1),x(2))
+% Control: u
+
+x1=x(1);
+x2=x(2);
+z=x(3);
+
+a_0 = 2;
+a_1 = 2;
+w = 1;
+
+xdot=[0, 1, 0;
+    -(x1 a_0)]
+
+end

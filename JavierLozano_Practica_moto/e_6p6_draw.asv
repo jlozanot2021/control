@@ -1,0 +1,43 @@
+% Adapted from https://www.ensta-bretagne.fr/jaulin/
+
+% State x = (x(1),x(2))
+
+
+function e_6p6_draw(x)
+    clf();
+    %plot(t,x(2)/10,'k--.',t,x(1),'r--.',t,x(3)*10,'r--.',t,x(4)/100,'r--.')
+    hold on;
+    axis square;
+    x1 = x(1)
+    x2 = x(2)
+    axis([-2,2,-2,2]);
+    px = sin(x(1))-cos(x(2))*1
+    py = cos(x(1))-sin(x(2))*1
+    
+    R_rod = [1 0 0;
+        0 1 1;
+        0 0 1];
+    traslacion_2 = [1 0 0;
+        0 1 1;
+        0 0 1];
+    rotation_phi = [1 0 0;
+        0 1 1;
+        0 0 1];
+
+   px_r=sin(x1)-cos(x2);
+   py_r=cos(x2)-sin(x2);
+
+    r_mark = [1 0 px_r;
+        0 1 py_r;
+        0 0 1];
+    
+   TR_px_py_theta=[[0, -sin(x(1)) 0;
+       0, cos(x(1))]];
+
+    tranformed = TR_px_py_theta.*R_rod
+    tranformed_mark = TR_px_py_theta.*traslacion_2.*rotation_phi.*r_mark
+    %transformed_tip = rotation_tetha*r_tip
+    plot(tranformed(1,:),tranformed(2,:),'black','LineWidth',1);            
+    plot(tranformed_mark(1,:),tranformed_mark(2,:),'red','LineWidth',1);  
+
+end
