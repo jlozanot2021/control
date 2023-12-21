@@ -1,0 +1,16 @@
+close all
+close all
+clc 
+
+syms l1 l2 x1 x2
+
+alpha = Iz1 + Iz2 + m1*r1^2 + m2*(l1^2 + r2^2);
+betha = m2*I1*r2;
+gamma = Iz2 + m2*r2^2;
+
+A = [alpha + 2*betha*cos(q2), gamma + betha*cos(q2);
+    gamma + betha*cos()];
+
+detA = simplify(det(A))
+adjA = simplify(det(A)*inv(A))
+invA = simplify(inv(A))
